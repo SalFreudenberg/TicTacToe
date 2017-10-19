@@ -85,7 +85,14 @@ class Game extends React.Component {
     );
   }
 }
+
 function calculateWinner(squares) {
+
+  function isAWinningLine(line) {
+      const[a, b, c] = line;
+      return (squares[a] === squares[b]) && (squares[b] === squares[c]);
+  }
+
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -99,13 +106,16 @@ function calculateWinner(squares) {
 
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
+
     {/* check whether any "line" contains all the same values in squares */}
-    if (squares[a] && (squares[a] === squares[b]) && (squares[a] === squares[c])) {
+    if (squares[a] && (isAWinningLine(lines[i]))) {
       return squares[a];
     }
   }
   return null;
 }
+
+
 
 // ========================================
 
