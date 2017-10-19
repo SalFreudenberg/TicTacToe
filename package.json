@@ -1,0 +1,13 @@
+{
+  "name": "tictactoe",
+  "version": "1",
+  "description": "test",
+  "main": "index.js",
+  "repository": "https://github.com/SalFreudenberg/TicTacToe.git",
+  "author": "SalFreudenberg <32770675+SalFreudenberg@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}
