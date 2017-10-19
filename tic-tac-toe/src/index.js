@@ -88,11 +88,6 @@ class Game extends React.Component {
 
 function calculateWinner(squares) {
 
-  function isAWinningLine(line) {
-      const[a, b, c] = line;
-      return (squares[a] === squares[b]) && (squares[b] === squares[c]);
-  }
-
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -104,11 +99,16 @@ function calculateWinner(squares) {
     [2, 4, 6],
   ];
 
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
+  function isLineFullAndWinning(line) {
+      const [a, b, c] = line;
 
-    {/* check whether any "line" contains all the same values in squares */}
-    if (squares[a] && (isAWinningLine(lines[i]))) {
+      return (squares[a] != null) && (squares[a] === squares[b]) && (squares[b] === squares[c]);
+  }
+
+
+  for (let i = 0; i < lines.length; i++) {
+  const [a, b, c] = lines[i];
+    if (isLineFullAndWinning(lines[i])) {
       return squares[a];
     }
   }
